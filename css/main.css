@@ -11,4 +11,8 @@
   #movies .col-md-3 .well {
     height: 390px; }
   #movies .col-md-3 img {
-    height: 240px; } }
+    height: 240px; } 
+.btn {
+    margin-bottom: 1.625rem;
+  }
+}

@@ -1,4 +1,4 @@
-$('#searchForm').on('submit', function(e) {
+$('#searchForm').on('submit', function (e) {
   let searchText = $('#formText').val();
   getMovies(searchText);
   e.preventDefault();
@@ -6,14 +6,14 @@ $('#searchForm').on('submit', function(e) {
 
 function getMovies(searchText) {
   axios
-    .get('http://www.omdbapi.com/?apikey=dfa38912&s=' + searchText)
-    .then(function(response) {
+    .get('https://www.omdbapi.com/?apikey=dfa38912&s=' + searchText)
+    .then(function (response) {
       console.log(response);
 
       let movies = response.data.Search;
 
       let output = '';
-      $.each(movies, function(index, movie) {
+      $.each(movies, function (index, movie) {
         output += `
           <div class="col-md-3">
               <div class="well text-center">
@@ -29,7 +29,7 @@ function getMovies(searchText) {
       $('#movies').html(output);
     })
 
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
     });
 }
@@ -44,8 +44,8 @@ function getMovie() {
   let movieId = sessionStorage.getItem('movieId');
 
   axios
-    .get('http://www.omdbapi.com/?apikey=dfa38912&i=' + movieId)
-    .then(function(response) {
+    .get('https://www.omdbapi.com/?apikey=dfa38912&i=' + movieId)
+    .then(function (response) {
       console.log(response);
 
       let movie = response.data;
@@ -87,7 +87,7 @@ function getMovie() {
           <hr />
 
           <a
-            href="http://imdb.com/title/${movie.imdbID}"
+            href="https://imdb.com/title/${movie.imdbID}"
             target="_blank"
             class="btn btn-primary"
             >View imdB</a
@@ -102,7 +102,7 @@ function getMovie() {
       $('#movie').html(output);
     })
 
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(err);
     });
 }
